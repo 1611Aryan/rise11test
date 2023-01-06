@@ -83,15 +83,51 @@ const StyledHeader = styled.header`
 
   .actions {
     font-weight: 500;
+    li {
+      transition: all 200ms ease;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+        color: yellow;
+      }
+    }
   }
   .nav {
     flex: 1;
     font-size: 0.8em;
+    a {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: -1px;
+        left: 0;
+        background-color: var(--white);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
   }
   .buttons {
     .elevate {
       font-weight: 200;
       font-size: 1.5em;
+      cursor: pointer;
+    }
+    > * {
+      transition: transform ease 200ms;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
     }
   }
 

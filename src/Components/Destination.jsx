@@ -10,6 +10,7 @@ const Destination = ({ location, more }) => {
 }
 
 const StyledLi = styled.li`
+  cursor: pointer;
   justify-self: flex-start;
   height: 70px;
   aspect-ratio: 2.3/1;
@@ -22,6 +23,13 @@ const StyledLi = styled.li`
 
   font-size: clamp(0.75rem, 1vw, 0.9rem);
   padding: calc(var(--padding) / 3);
+
+  transition: all 200ms ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background: var(--lightgray);
+  }
 
   .location {
     color: var(--purple);
